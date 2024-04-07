@@ -1,9 +1,9 @@
 ---
 layout: post
-title: leetCode] 338. Counting Bits
+title: "leetCode 338. Counting Bits"
 date: 2024-04-07 23:15:00 +07:00
 categories: leetcode
-tags: [blog, javascript, leetcode, Bit Manipulation]
+tags: [blog, javascript, leetcode, BitManipulation]
 description: leetcode Bit Manipulation easy test
 ---
 
