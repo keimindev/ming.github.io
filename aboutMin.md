@@ -13,7 +13,7 @@ The blog serves as documentation about my programming journey 🎒.
 Additionally, I love learning about web technology, but I often forget that it's the reason why I'm writing. 
 I'm looking to record questions and thoughts to ponder.
 
-love cute things from all around the world 🌍</br>
+love cute things from all around the world 🌍
 
 
 **may u needs ✨**
