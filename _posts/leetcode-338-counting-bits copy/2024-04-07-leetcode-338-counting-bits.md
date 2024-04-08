@@ -1,7 +1,7 @@
 ---
 layout: post
 title: leetCode 338.Counting Bits
-date: 2024-04-07 15:30:00 +07:00
+date: 2024-04-07 16:30:00 +07:00
 categories: leetcode
 tags: [blog, javascript, leetcode, BitManipulation]
 description: leetcode Bit Manipulation easy test
