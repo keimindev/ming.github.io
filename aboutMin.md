@@ -18,5 +18,5 @@ love cute things from all around the world 🌍
 
 **may u needs ✨**
 
-- {{ site.author.email }}
-- github.com/{{ site.author.github }}
+- <keimindev@gmail.com>
+- [github](https://github.com/keimindev)
