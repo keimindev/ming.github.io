@@ -16,7 +16,7 @@ Flip operation consists of change `any` single bit `1` to `0` or change the bit 
 
 
 Example 1:
-![alt text](image.png)
+![example img](./image.png)
 
 ```javascript
 Input: a = 2, b = 6, c = 5
@@ -58,7 +58,6 @@ console.log(`An index of ${index} returns ${array1.at(index)}`);
 // Expected output: "An index of -2 returns 130"
  
 ```
-
 
 
 #### Solution

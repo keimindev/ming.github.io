@@ -1,4 +1,4 @@
-## Welcome to Ming's Dev log.
+## Welcome to [Ming's Dev blog](https://keimindev.github.io/)
 
 I write about what I've learned in the dev world. 
 Thank you for visiting my blog
