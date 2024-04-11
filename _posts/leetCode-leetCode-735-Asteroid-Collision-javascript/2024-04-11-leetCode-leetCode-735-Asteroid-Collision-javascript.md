@@ -54,13 +54,13 @@ If the number at the previous index is positive and the one at the next index is
 
 
 its Stack. 
-----> get a help from others
-1.create result array 
-2.loop through the given array
+----> get a help from others <br>
+1.create result array <br>
+2.loop through the given array<br>
     a.create var last to know the last value you push in result and current arr to have current value.
     b.Check if result arr is empty then push current also check if last value was -ve then push current because it doesnt if both are +ve or negative aslo check if current is +ve jsut push in result.
     c. if the current is -ve than compare with last if both equal than pop the last from result
-    d.if the current is -ve and greater than last still pop the last from result but now we have to push next element on the last position from where we pop so do i--
+    d.if the current is -ve and greater than last still pop the last from result but now we have to push next element on the last position from where we pop so do i--<br>
 3. return result
 
 
