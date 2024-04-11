@@ -61,7 +61,7 @@ its Stack.
     b.Check if result arr is empty then push current also check if last value was -ve then push current because it doesnt if both are +ve or negative aslo check if current is +ve jsut push in result.
     c. if the current is -ve than compare with last if both equal than pop the last from result
     d.if the current is -ve and greater than last still pop the last from result but now we have to push next element on the last position from where we pop so do i--<br>
-3. return result
+3.return result
 
 
 <br>
