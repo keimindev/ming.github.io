@@ -1,7 +1,7 @@
 ---
 title: Project
 permalink: /project/
-layout: project
+layout: page
 excerpt: project post.
 comments: false
 ---
@@ -16,7 +16,7 @@ comments: false
   {%- endunless -%}
   <article class="post-item">
     <h3 class="post-item-title">
-      <a href="{{ project.url }}">{{ post.title | escape }}</a>
+      <a href="{{ project.url }}">{{ project.title | escape }}</a>
     </h3> 
   </article>
 {%- endfor -%}
