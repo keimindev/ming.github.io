@@ -23,7 +23,7 @@ In addition, I have experience attending numerous business meetings to contribut
 - <keimindev@gmail.com>
 - [github](https://github.com/keimindev){:target="_blank"}
 - [LinkedIn](https://www.linkedin.com/in/keira-ming/){:target="_blank"}
-- [Resume(Eng)](https://drive.google.com/file/d/18wMSGvPWXTggyqsUMjxieEHexpWV7A8y/view?usp=sharing)
+- [Resume(Eng)](https://drive.google.com/file/d/18wMSGvPWXTggyqsUMjxieEHexpWV7A8y/view?usp=sharing){:target="_blank"}
 
 
 
@@ -45,7 +45,7 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - Experienced in version control with Git/GitHub
 - Work closely with other Developers, Designer, Technical Lead, and Product Owner for effective collaboration
 - Interacting with customers and development teams to resolve issues
-- Attracted 1,000+ users and participated in IT meetings at MWC (Barcelona) [Related articles](https://aibusiness.com/ml/mwc-23-ai-startups-offering-an-ai-writing-assistant-baby-cry-analyzer-and-more)
+- Attracted 1,000+ users and participated in IT meetings at MWC (Barcelona) [Related articles](https://aibusiness.com/ml/mwc-23-ai-startups-offering-an-ai-writing-assistant-baby-cry-analyzer-and-more){:target="_blank"}
 
 
 
