@@ -27,18 +27,18 @@ In addition, I have experience attending numerous business meetings to contribut
 
 
 
-## Skills 
+### Skills 
 Javascript, Typescript, React, Next.js, Redux, Flutter
 
 
-## Work Experience
-### Stylebot (Seoul, South Korea)
+### Work Experience
+#### Stylebot (Seoul, South Korea)
 - 2022.06 - 2024.01
 - **Frontend Developer**
 
 
-## Projects
-### Stylebot
+### Projects
+#### Stylebot
 - Developed B2B/B2C admin platforms with user-friendly interfaces using React.js and TypeScript, aligned with strategic objectives
 - Modified legacy code, resulting in a one-third reduction in API call volume
 - Transformed Flutter WebView to React, reducing memory usage by 8-90%
@@ -49,7 +49,7 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 
 
 
-### personal projects
+#### personal projects
 **T.O.T(Trace of Time)**
 - T.O.T is a time-tracking web platform. 
 - It serves as a time record book where users can track how much they read and study each day, allowing them to monitor their activities for the month
@@ -66,7 +66,7 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - [github](https://github.com/WagglyDevTeam/FrontEnd)
 
 
-## Education
+### Education
 
 **HangHae99 Bootcamp (2020.11 - 2021.02)**
 - For 99 days, average more than 15 hours of learning Code

@@ -2,7 +2,7 @@
 
 I write about what I've learned in the dev world. 
 Thank you for visiting my blog
-
+개인 블로그입니다! 
 
 
 ### Thanks for [Klisé](https://github.com/piharpi/jekyll-klise.git)
