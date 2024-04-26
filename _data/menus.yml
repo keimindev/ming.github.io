@@ -2,17 +2,19 @@
   url: /
   external: false
 
+- title: about
+  url: /aboutMin/
+  external: false # set true if you using external link, see below
+
 - title: archive
   url: /archive/
   external: false
 
-- title: project
-  url: /project/
-  external: false 
+- title: Blog
+  url: https://mindevlog.tistory.com/
+  external: true 
 
-- title: about
-  url: /aboutMin/
-  external: false # set true if you using external link, see below
+
 
 # Example:
 # - title: github
