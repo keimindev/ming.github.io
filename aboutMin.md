@@ -1,5 +1,5 @@
 ---
-title: MinGyeong Jeong.
+title: MinGyeong Jeong
 permalink: /aboutMin/
 layout: page
 excerpt: I am a frontend developer living in Seoul, South Korea.
@@ -17,9 +17,8 @@ In addition, I have experience attending numerous business meetings to contribut
 - Legacy code maintenance (memory usage management, prevention of API call overload)
 - Operation and deployment of services in AWS cloud environments
 
-<br>
 
-**may u needs ✨**
+**✨may u needs✨**
 
 - <keimindev@gmail.com>
 - [github](https://github.com/keimindev)
@@ -27,19 +26,16 @@ In addition, I have experience attending numerous business meetings to contribut
 - [Resume(Eng)](https://drive.google.com/file/d/18wMSGvPWXTggyqsUMjxieEHexpWV7A8y/view?usp=sharing)
 
 
-<br>
 
 ## Skills 
 Javascript, Typescript, React, Next.js, Redux, Flutter
 
-<br>
 
 ## Work Experience
 ### Stylebot (Seoul, South Korea)
 - 2022.06 - 2024.01
 - **Frontend Developer**
 
-<br>
 
 ## Projects
 ### Stylebot
@@ -51,7 +47,7 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - Interacting with customers and development teams to resolve issues
 - Attracted 1,000+ users and participated in IT meetings at MWC (Barcelona) [Related articles](https://aibusiness.com/ml/mwc-23-ai-startups-offering-an-ai-writing-assistant-baby-cry-analyzer-and-more)
 
-<br>
+
 
 ### personal projects
 **T.O.T(Trace of Time)**
@@ -61,7 +57,6 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - [T.O.T Link](https://tot-web.vercel.app/)
 - [github](https://github.com/keimindev/tot)
 
-<br>
 
 **Waggly (2022.06-2023.07)**
 - University Life Communication Platform
@@ -70,7 +65,6 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - Position: Frontend(Flutter)
 - [github](https://github.com/WagglyDevTeam/FrontEnd)
 
-<br>
 
 ## Education
 
@@ -80,7 +74,6 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - Developed a barter platform and conducted one week of user testing, receiving approximately 70 feedback responses and handling bug fixes
 - Developed a university life community app using Flutter with a team of bootcamp colleagues.
 
-<br>
 
 
 **Kyungsug University (2007.03 - 2012.02)**
