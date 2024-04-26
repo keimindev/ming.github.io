@@ -21,8 +21,8 @@ In addition, I have experience attending numerous business meetings to contribut
 **✨may u needs✨**
 
 - <keimindev@gmail.com>
-- [github](https://github.com/keimindev)
-- [LinkedIn](https://www.linkedin.com/in/keira-ming/)
+- [github](https://github.com/keimindev){:target="_blank"}
+- [LinkedIn](https://www.linkedin.com/in/keira-ming/){:target="_blank"}
 - [Resume(Eng)](https://drive.google.com/file/d/18wMSGvPWXTggyqsUMjxieEHexpWV7A8y/view?usp=sharing)
 
 
@@ -54,8 +54,8 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - T.O.T is a time-tracking web platform. 
 - It serves as a time record book where users can track how much they read and study each day, allowing them to monitor their activities for the month
 - Nextjs, mongooDB, recoil, vercel
-- [T.O.T Link](https://tot-web.vercel.app/)
-- [github](https://github.com/keimindev/tot)
+- [T.O.T Link](https://tot-web.vercel.app/){:target="_blank"}
+- [github](https://github.com/keimindev/tot){:target="_blank"}
 
 
 **Waggly (2022.06-2023.07)**
@@ -63,8 +63,7 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 - A community platform to help university students navigate their school life amidst the COVID-19 pandemic, where face-to-face interactions are limited.
 - Team Project
 - Position: Frontend(Flutter)
-- [github](https://github.com/WagglyDevTeam/FrontEnd)
-
+- <a href="https://github.com/WagglyDevTeam/FrontEnd" target="_blank">github</a>
 
 ### Education
 
