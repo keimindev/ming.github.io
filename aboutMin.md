@@ -32,13 +32,13 @@ Javascript, Typescript, React, Next.js, Redux, Flutter
 
 
 ### Work Experience
-#### Stylebot (Seoul, South Korea)
+**Stylebot (Seoul, South Korea)**
 - 2022.06 - 2024.01
 - **Frontend Developer**
 
 
 ### Projects
-#### Stylebot
+**Stylebot**
 - Developed B2B/B2C admin platforms with user-friendly interfaces using React.js and TypeScript, aligned with strategic objectives
 - Modified legacy code, resulting in a one-third reduction in API call volume
 - Transformed Flutter WebView to React, reducing memory usage by 8-90%
