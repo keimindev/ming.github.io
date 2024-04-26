@@ -1,8 +1,8 @@
 ## Welcome to [Ming's Dev blog](https://keimindev.github.io/)
 
-I write about what I've learned in the dev world. 
-Thank you for visiting my blog
-개인 블로그입니다! 
+I write about what I've learned in the dev world. <br>
+Thank you for visiting my blog <br>
+개인 블로그입니다! <br>
 
 
 ### Thanks for [Klisé](https://github.com/piharpi/jekyll-klise.git)
