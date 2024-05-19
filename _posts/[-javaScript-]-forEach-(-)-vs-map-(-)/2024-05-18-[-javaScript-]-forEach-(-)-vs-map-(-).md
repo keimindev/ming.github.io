@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [javaScript] forEach() vs map()
+title: JavaScript | forEach() vs map()
 date: 2024-05-18 09:43:10 +07:00
 categories: javascript
 tags: [blog, javascript, cs]
