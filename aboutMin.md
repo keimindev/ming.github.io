@@ -12,12 +12,12 @@ When I first started developing, I loved the idea of creating products that coul
 
 As a frontend developer, I've enjoyed, experienced, and strived for the following:
 
-▪ I thrive in environments where I can work proactively and responsibly. </br> 
-▪ I work hard to be a trusted colleague through communication and constant growth in my technical skills. </br>
-▪ I also enjoy receiving code reviews.</br>
-▪ I'm comfortable using various communication tools like Figma, Slack, Notion, and Jira.</br>
-▪ I'm always looking for better ways to do things. </br>
-▪ Although I'm still learning, I frequently write to improve my documentation skills. </br>
+▪ I thrive in environments where I can work proactively and responsibly. <br> 
+▪ I work hard to be a trusted colleague through communication and constant growth in my technical skills.
+▪ I also enjoy receiving code reviews.
+▪ I'm comfortable using various communication tools like Figma, Slack, Notion, and Jira.
+▪ I'm always looking for better ways to do things. 
+▪ Although I'm still learning, I frequently write to improve my documentation skills. 
 
 
 **✨may u needs✨**
@@ -37,7 +37,7 @@ JavaScript, Typescript, React, Next.js, Redux, tailwind-css, Flutter
 ## Work Experience
 **Stylebot (Seoul, South Korea)**
 - 2022.06 - 2024.01
-- **Frontend Developer** </br>
+- **Frontend Developer** 
 - **Description**
   - Developed and managed STYLEBOT, an e-commerce platform that provides AI virtual fitting services to about 80,000 users, 100 online malls, and the fashion group Hanseom. This B2B/B2C platform digitizes forgotten clothes from users' wardrobes, helping them make better use of these items when shopping online. I also worked on JENNIE SOLUTION, a virtual fitting service that allows users to try on clothes sold online on their avatars.
 
@@ -50,7 +50,8 @@ JavaScript, Typescript, React, Next.js, Redux, tailwind-css, Flutter
 - 2022.06 - 2024.01
 
 **Tech Stack**
-Next.js, Typescript, Material-UI </br>
+- Next.js, Typescript, Material-UI 
+
 **Experience**
 - Developed and managed an admin site for a mobile app where users upload images of clothes, which AI then digitizes. The admin site includes a review page and marketing tools for the app.
 - Modified legacy code, resulting in a one-third reduction in API call volume
@@ -64,7 +65,8 @@ Next.js, Typescript, Material-UI </br>
 - 2023.04 - 2024.01
 
 **Tech Stack**
-Next.js, React, Typescript, Material-UI, Redux-tookit</br>
+- Next.js, React, Typescript, Material-UI, Redux-tookit
+
 **Experience**
 - Developed a B2B admin site integrating product data from Cafe24 shopping malls using the Cafe24 developer API.
 - Transformed Flutter WebView to React, reducing memory usage by 8-90%
