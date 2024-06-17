@@ -30,22 +30,22 @@ As a frontend developer, I've enjoyed, experienced, and strived for the followin
 
 
 
-## Skills 
+### Skills 
 JavaScript, Typescript, React, Next.js, Redux, tailwind-css, Flutter
 
 
 ## Work Experience
 **Stylebot (Seoul, South Korea)**
 - 2022.06 - 2024.01
-- **Frontend Developer**
+- **Frontend Developer** </br>
+- **Description**
+  - Developed and managed STYLEBOT, an e-commerce platform that provides AI virtual fitting services to about 80,000 users, 100 online malls, and the fashion group Hanseom. This B2B/B2C platform digitizes forgotten clothes from users' wardrobes, helping them make better use of these items when shopping online. I also worked on JENNIE SOLUTION, a virtual fitting service that allows users to try on clothes sold online on their avatars.
 
-- Developed and managed STYLEBOT, an e-commerce platform that provides AI virtual fitting services to about 80,000 users, 100 online malls, and the fashion group Hanseom. This B2B/B2C platform digitizes forgotten clothes from users' wardrobes, helping them make better use of these items when shopping online. I also worked on JENNIE SOLUTION, a virtual fitting service that allows users to try on clothes sold online on their avatars.
-
-- For the existing STYLEBOT app admin site, I participated in improving legacy code and developing new features for the app. For the AI virtual fitting service JENNIE SOLUTION, I contributed from the planning stage through to development and service launch.
+  - For the existing STYLEBOT app admin site, I participated in improving legacy code and developing new features for the app. For the AI virtual fitting service JENNIE SOLUTION, I contributed from the planning stage through to development and service launch.
 
 
-## Projects
-### STYLEBOT
+### Projects
+#### STYLEBOT
 **stylebot**
 - 2022.06 - 2024.01
 
@@ -59,7 +59,7 @@ Next.js, Typescript, Material-UI </br>
 - Attracted 1,000+ users and participated in IT meetings at MWC (Barcelona) [Related articles](https://aibusiness.com/ml/mwc-23-ai-startups-offering-an-ai-writing-assistant-baby-cry-analyzer-and-more){:target="_blank"}
 
 
-### JENNIE SOLUTION
+#### JENNIE SOLUTION
 **stylebot**
 - 2023.04 - 2024.01
 
@@ -72,7 +72,7 @@ Next.js, React, Typescript, Material-UI, Redux-tookit</br>
 - Resolved data loss routing issues on Next.js page refreshes using AWS CloudFront functions.
 
 
-## personal projects
+### personal projects
 **T.O.T(Trace of Time)**
 - T.O.T is a time-tracking web platform. 
 - It serves as a time record book where users can track how much they read and study each day, allowing them to monitor their activities for the month
