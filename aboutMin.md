@@ -10,8 +10,7 @@ comments: false
 
 When I first started developing, I loved the idea of creating products that could make a difference in people's daily lives. I always prioritize user value, focusing on user-friendly designs and working hard to solve problems. I'm always eager to embrace change and new challenges.
 
-`As a frontend developer, I've enjoyed, experienced, and strived for the following:`
-
+As a frontend developer, I've enjoyed, experienced, and strived for the following:
 ▪ I thrive in environments where I can work proactively and responsibly. <br> 
 ▪ I work hard to be a trusted colleague through communication and constant growth in my technical skills. <br> 
 ▪ I also enjoy receiving code reviews. <br> 
