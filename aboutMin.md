@@ -6,16 +6,18 @@ excerpt: I am a frontend developer living in Seoul, South Korea.
 comments: false
 ---
 
-
 ### 👋 Hi, I’m Frontend Developer - based out of South Korea
 
-For the past two years, I have worked as a frontend developer, utilizing JavaScript-based React and Next.js to implement, develop, deploy, and operate web services. Throughout the development process, I have prioritized the value of users and consistently strived for code optimization and problem-solving.
+When I first started developing, I loved the idea of creating products that could make a difference in people's daily lives. I always prioritize user value, focusing on user-friendly designs and working hard to solve problems. I'm always eager to embrace change and new challenges.
 
-In addition, I have experience attending numerous business meetings to contribute to business growth. I have also made efforts to efficiently collaborate with team members to advance projects. Are you looking for a developer who can work independently as well as a team player? Let's take the first step towards success together.
+As a frontend developer, I've enjoyed, experienced, and strived for the following:
 
-- Experience migrating from Flutter to React.js
-- Legacy code maintenance (memory usage management, prevention of API call overload)
-- Operation and deployment of services in AWS cloud environments
+▪ I thrive in environments where I can work proactively and responsibly. </br> 
+▪ I work hard to be a trusted colleague through communication and constant growth in my technical skills. </br>
+▪ I also enjoy receiving code reviews.</br>
+▪ I'm comfortable using various communication tools like Figma, Slack, Notion, and Jira.</br>
+▪ I'm always looking for better ways to do things. </br>
+▪ Although I'm still learning, I frequently write to improve my documentation skills. </br>
 
 
 **✨may u needs✨**
@@ -24,32 +26,53 @@ In addition, I have experience attending numerous business meetings to contribut
 - [github](https://github.com/keimindev){:target="_blank"}
 - [LinkedIn](https://www.linkedin.com/in/keira-ming/){:target="_blank"}
 - [Resume(Eng)](https://drive.google.com/file/d/18wMSGvPWXTggyqsUMjxieEHexpWV7A8y/view?usp=sharing){:target="_blank"}
+- [Resume(Kor)](https://drive.google.com/file/d/1E2l1_g9y974r_JOXTFjtU7bbhuq5JA-B/view?usp=sharing){:target="_blank"}
 
 
 
-### Skills 
-Javascript, Typescript, React, Next.js, Redux, Flutter
+## Skills 
+JavaScript, Typescript, React, Next.js, Redux, tailwind-css, Flutter
 
 
-### Work Experience
+## Work Experience
 **Stylebot (Seoul, South Korea)**
 - 2022.06 - 2024.01
 - **Frontend Developer**
 
+- Developed and managed STYLEBOT, an e-commerce platform that provides AI virtual fitting services to about 80,000 users, 100 online malls, and the fashion group Hanseom. This B2B/B2C platform digitizes forgotten clothes from users' wardrobes, helping them make better use of these items when shopping online. I also worked on JENNIE SOLUTION, a virtual fitting service that allows users to try on clothes sold online on their avatars.
 
-### Projects
-**Stylebot**
-- Developed B2B/B2C admin platforms with user-friendly interfaces using React.js and TypeScript, aligned with strategic objectives
+- For the existing STYLEBOT app admin site, I participated in improving legacy code and developing new features for the app. For the AI virtual fitting service JENNIE SOLUTION, I contributed from the planning stage through to development and service launch.
+
+
+## Projects
+### STYLEBOT
+**stylebot**
+- 2022.06 - 2024.01
+
+**Tech Stack**
+Next.js, Typescript, Material-UI </br>
+**Experience**
+- Developed and managed an admin site for a mobile app where users upload images of clothes, which AI then digitizes. The admin site includes a review page and marketing tools for the app.
 - Modified legacy code, resulting in a one-third reduction in API call volume
-- Transformed Flutter WebView to React, reducing memory usage by 8-90%
 - Experienced in version control with Git/GitHub
-- Work closely with other Developers, Designer, Technical Lead, and Product Owner for effective collaboration
 - Interacting with customers and development teams to resolve issues
 - Attracted 1,000+ users and participated in IT meetings at MWC (Barcelona) [Related articles](https://aibusiness.com/ml/mwc-23-ai-startups-offering-an-ai-writing-assistant-baby-cry-analyzer-and-more){:target="_blank"}
 
 
+### JENNIE SOLUTION
+**stylebot**
+- 2023.04 - 2024.01
 
-#### personal projects
+**Tech Stack**
+Next.js, React, Typescript, Material-UI, Redux-tookit</br>
+**Experience**
+- Developed a B2B admin site integrating product data from Cafe24 shopping malls using the Cafe24 developer API.
+- Transformed Flutter WebView to React, reducing memory usage by 8-90%
+- Implemented a virtual fitting room that allows users to dress avatars with various 2D item images
+- Resolved data loss routing issues on Next.js page refreshes using AWS CloudFront functions.
+
+
+## personal projects
 **T.O.T(Trace of Time)**
 - T.O.T is a time-tracking web platform. 
 - It serves as a time record book where users can track how much they read and study each day, allowing them to monitor their activities for the month
