@@ -1,0 +1,68 @@
+I"#<p>leetCode <a href="https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/">1493. Longest Subarray of 1’s After Deleting One Element</a>.</p>
+
+<hr />
+
+<p>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code>, you should delete one element from it.</p>
+
+<p>Return the size of the longest non-empty subarray containing only <code class="language-plaintext highlighter-rouge">1</code>’s in the resulting array. Return <code class="language-plaintext highlighter-rouge">0</code> if there is no such subarray.</p>
+
+<p>Example 1:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">3</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">After</span> <span class="nx">deleting</span> <span class="nx">the</span> <span class="nx">number</span> <span class="k">in</span> <span class="nx">position</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="nx">contains</span> <span class="mi">3</span> <span class="nx">numbers</span> <span class="kd">with</span> <span class="nx">value</span> <span class="k">of</span> <span class="mi">1</span><span class="nx">s</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">5</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">After</span> <span class="nx">deleting</span> <span class="nx">the</span> <span class="nx">number</span> <span class="k">in</span> <span class="nx">position</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="nx">longest</span> <span class="nx">subarray</span> <span class="kd">with</span> <span class="nx">value</span> <span class="k">of</span> <span class="mi">1</span><span class="nx">s</span> <span class="nx">is</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">].</span>
+</code></pre></div></div>
+
+<p>Example 3:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">2</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">You</span> <span class="nx">must</span> <span class="k">delete</span> <span class="nx">one</span> <span class="nx">element</span><span class="p">.</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<p>You need to find the sum of 1’s. Use a loop to find 0, then put the sum of 1’s before 0 into a temporary array. Then, you can obtain the sum of the 1’s, but you need to find the longest consecutive sum of 1’s.</p>
+
+<p>Again, find the maximum sum by adding the numbers in the temporary array using loop.</p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">longestSubarray</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">return</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">maxArr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">1</span><span class="p">){</span>
+         <span class="nx">sum</span><span class="o">++</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+         <span class="nx">maxArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+         <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="nx">maxArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">maxArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">maxArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nx">maxArr</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">));</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">result</span><span class="p">)</span>
+        
+<span class="p">};</span>
+</code></pre></div></div>
+
+:ET

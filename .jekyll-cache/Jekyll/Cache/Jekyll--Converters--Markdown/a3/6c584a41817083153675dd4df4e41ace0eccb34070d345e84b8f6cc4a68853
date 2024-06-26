@@ -1,0 +1,78 @@
+I"<p>leetCode <a href="https://leetcode.com/problems/increasing-order-search-tree/">897. Increasing Order Search Tree</a>.</p>
+
+<hr />
+
+<p>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.</p>
+
+<p>Example 1:</p>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/11/17/ex1.jpg" alt="example1" width="500" /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">root</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/11/17/ex2.jpg" alt="example12" width="500" /></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">root</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Constraints:</p>
+
+<p>The number of nodes in the given tree will be in the range [1, 100].
+0 &lt;= Node.val &lt;= 1000</p>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<p>I thought I would create a new TreeNode first for result. 
+and then I should do compare values with level order traverse of root for Increasing Order.
+the last, i would push that compared values to new TreeNode. 
+that was my first try.</p>
+
+<p>and I was wrong. 
+I had to do inorder traversal and just understood about concept of treeNode. 
+But I didn’t know and understand how to write a code for solution.</p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">increasingBST</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 새로운 노드 만들고 </span>
+    <span class="c1">// 층별 순회하면서 비교하면서 넣어주면 되지 않나? 라고 생각함. </span>
+    <span class="c1">// 위에 처럼 생각하고 코드는 단 한 줄도 적지 못함.</span>
+   
+    
+    
+    <span class="c1">// arr 만들고 root 를 거기에 넣어주기 위해</span>
+	<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1">// 넣어주는 작업 </span>
+    <span class="c1">// 중위 순회를 해야함</span>
+	<span class="kd">function</span> <span class="nx">getVals</span><span class="p">(</span><span class="nx">node</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">)</span> <span class="k">return</span>
+		<span class="nx">getVals</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span>
+		<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">val</span><span class="p">)</span>
+		<span class="nx">getVals</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nx">val</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">getVals</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
+
+    <span class="c1">// 새로운 노드 생성</span>
+	<span class="kd">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeNode</span><span class="p">()</span>
+	<span class="kd">let</span> <span class="nx">curr</span> <span class="o">=</span> <span class="nx">tree</span>
+    
+    <span class="c1">// arr를 돌면서 오른쪽에만 차근차근 넣기</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">curr</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeNode</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+		<span class="nx">curr</span> <span class="o">=</span> <span class="nx">curr</span><span class="p">.</span><span class="nx">right</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">right</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+:ET

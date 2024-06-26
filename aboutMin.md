@@ -25,7 +25,7 @@ As a frontend developer, I've enjoyed, experienced, and strived for the followin
 ▪ [github](https://github.com/keimindev){:target="_blank"}  <br> 
 ▪ [LinkedIn](https://www.linkedin.com/in/keira-ming/){:target="_blank"}  <br> 
 ▪ [Resume(Eng)](https://drive.google.com/file/d/18wMSGvPWXTggyqsUMjxieEHexpWV7A8y/view?usp=sharing){:target="_blank"}  <br> 
-▪ [Resume(Kor)](https://drive.google.com/file/d/1IJOa-VpzQWIKZ3k_fUekMknZpkXrQcdU/view?usp=sharing){:target="_blank"}  <br> 
+
 
 
 

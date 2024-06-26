@@ -1,0 +1,70 @@
+I"v'<p>leetCode <a href="https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/">3042.Count Prefix and Suffix Pairs I</a>.</p>
+
+<hr />
+
+<p>You are given a <strong>0-indexed</strong> string array words.</p>
+
+<p>Let’s define a <strong>boolean</strong> function <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix</code> that takes two strings, str1 and str2:</p>
+
+<p><code class="language-plaintext highlighter-rouge">isPrefixAndSuffix(str1, str2)</code> returns true if str1 is both a prefix and a suffix of str2, and false otherwise.
+For example, <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix("aba", "ababa")</code> is true because “aba” is a prefix of “ababa” and also a suffix, but <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix("abc", "abcd")</code> is false.</p>
+
+<p>Return an integer denoting the <strong>number</strong> of index pairs (i, j) such that i &lt; j, and <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix(words[i], words[j])</code> is true.</p>
+
+<p>Example 1:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">words</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">aba</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">ababa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">aa</span><span class="dl">"</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">4</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">In</span> <span class="k">this</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">counted</span> <span class="nx">index</span> <span class="nx">pairs</span> <span class="nx">are</span><span class="p">:</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">aba</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ababa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">3</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">aa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">aba</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ababa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">Therefore</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">answer</span> <span class="nx">is</span> <span class="mi">4</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">words</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">pa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">papa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">ma</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">mama</span><span class="dl">"</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">2</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">In</span> <span class="k">this</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">counted</span> <span class="nx">index</span> <span class="nx">pairs</span> <span class="nx">are</span><span class="p">:</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">pa</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">papa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">3</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">ma</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mama</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">Therefore</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">answer</span> <span class="nx">is</span> <span class="mi">2</span><span class="p">.</span>  
+</code></pre></div></div>
+
+<p>Constraints:</p>
+
+<ul>
+  <li>1 &lt;= words.length &lt;= 50</li>
+  <li>1 &lt;= words[i].length &lt;= 10</li>
+  <li>words[i] consists only of lowercase English letters.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="approach">Approach</h4>
+
+<p>I used the <code class="language-plaintext highlighter-rouge">includes()</code> method on my first try. I passed the test cases, but i didn’t passed one of use cases. Then I found out that words[j] was supposed to end with words[i] string too. I missed that part.
+I searched for methods and found <code class="language-plaintext highlighter-rouge">startsWith()</code> and <code class="language-plaintext highlighter-rouge">endsWitdh()</code>.</p>
+
+<p><br /></p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countPrefixSuffixPairs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span><span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;</span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">startsWith</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">words</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">endsWith</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">])){</span>
+                <span class="nx">sum</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+:ET

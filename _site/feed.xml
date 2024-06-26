@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/keimindev.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/keimindev.github.io/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2024-06-19T15:54:22+09:00</updated><id>http://localhost:4000/keimindev.github.io/feed.xml</id><title type="html">Ming🐰</title><subtitle>A frontend developer who prioritizes creating better user value over simply making a product.</subtitle><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><entry><title type="html">leetCode 3042.Count Prefix and Suffix Pairs I</title><link href="http://localhost:4000/keimindev.github.io/leetCode-3042-Count-Prefix-and-Suffix-Pairs-I/" rel="alternate" type="text/html" title="leetCode 3042.Count Prefix and Suffix Pairs I" /><published>2024-05-19T13:04:00+09:00</published><updated>2024-05-19T13:04:00+09:00</updated><id>http://localhost:4000/keimindev.github.io/leetCode-3042-Count-Prefix-and-Suffix-Pairs-I</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/leetCode-3042-Count-Prefix-and-Suffix-Pairs-I/"><![CDATA[<p>leetCode <a href="https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/">3042.Count Prefix and Suffix Pairs I</a>.</p>
+
+<hr />
+
+<p>You are given a <strong>0-indexed</strong> string array words.</p>
+
+<p>Let’s define a <strong>boolean</strong> function <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix</code> that takes two strings, str1 and str2:</p>
+
+<p><code class="language-plaintext highlighter-rouge">isPrefixAndSuffix(str1, str2)</code> returns true if str1 is both a prefix and a suffix of str2, and false otherwise.
+For example, <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix("aba", "ababa")</code> is true because “aba” is a prefix of “ababa” and also a suffix, but <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix("abc", "abcd")</code> is false.</p>
+
+<p>Return an integer denoting the <strong>number</strong> of index pairs (i, j) such that i &lt; j, and <code class="language-plaintext highlighter-rouge">isPrefixAndSuffix(words[i], words[j])</code> is true.</p>
+
+<p>Example 1:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">words</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">aba</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">ababa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">aa</span><span class="dl">"</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">4</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">In</span> <span class="k">this</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">counted</span> <span class="nx">index</span> <span class="nx">pairs</span> <span class="nx">are</span><span class="p">:</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">aba</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ababa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">3</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">aa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">aba</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ababa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">Therefore</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">answer</span> <span class="nx">is</span> <span class="mi">4</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">words</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">pa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">papa</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">ma</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">mama</span><span class="dl">"</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">2</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">In</span> <span class="k">this</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">counted</span> <span class="nx">index</span> <span class="nx">pairs</span> <span class="nx">are</span><span class="p">:</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">pa</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">papa</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="nx">and</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">3</span> <span class="nx">because</span> <span class="nx">isPrefixAndSuffix</span><span class="p">(</span><span class="dl">"</span><span class="s2">ma</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mama</span><span class="dl">"</span><span class="p">)</span> <span class="nx">is</span> <span class="kc">true</span><span class="p">.</span>
+<span class="nx">Therefore</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">answer</span> <span class="nx">is</span> <span class="mi">2</span><span class="p">.</span>  
+</code></pre></div></div>
+
+<p>Constraints:</p>
+
+<ul>
+  <li>1 &lt;= words.length &lt;= 50</li>
+  <li>1 &lt;= words[i].length &lt;= 10</li>
+  <li>words[i] consists only of lowercase English letters.</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="approach">Approach</h4>
+
+<p>I used the <code class="language-plaintext highlighter-rouge">includes()</code> method on my first try. I passed the test cases, but i didn’t passed one of use cases. Then I found out that words[j] was supposed to end with words[i] string too. I missed that part.
+I searched for methods and found <code class="language-plaintext highlighter-rouge">startsWith()</code> and <code class="language-plaintext highlighter-rouge">endsWitdh()</code>.</p>
+
+<p><br /></p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countPrefixSuffixPairs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span><span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;</span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">startsWith</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">words</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">endsWith</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">])){</span>
+                <span class="nx">sum</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="leetcode" /><category term="blog" /><category term="javascript" /><category term="leetcode" /><category term="hashFn" /><category term="hash" /><summary type="html"><![CDATA[leetcode hash Fn easy test]]></summary></entry><entry><title type="html">JavaScript | forEach() vs map()</title><link href="http://localhost:4000/keimindev.github.io/javaScript-forEach-(-)-vs-map-(-)/" rel="alternate" type="text/html" title="JavaScript | forEach() vs map()" /><published>2024-05-18T11:43:10+09:00</published><updated>2024-05-18T11:43:10+09:00</updated><id>http://localhost:4000/keimindev.github.io/%5B-javaScript-%5D-forEach-(-)-vs-map-(-)</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/javaScript-forEach-(-)-vs-map-(-)/"><![CDATA[<h2 id="foreach-vs-map">forEach() vs map()</h2>
+
+<p>Both methods are Array instances and iterative methods. However, the details of the methods are slightly different</p>
+
+<p><br /></p>
+
+<h2 id="arrayprototypeforeach">Array.prototype.forEach()</h2>
+<p>The <code class="language-plaintext highlighter-rouge">forEach()</code> method of Array instances executes a provided function once for each array element.
+The <code class="language-plaintext highlighter-rouge">forEach()</code> method is an iterative method. it calls a provided callbackFn function once for each element in an array in ascending-index order. Unlike map(), forEach() always returns <code class="language-plaintext highlighter-rouge">undefined</code> and is not chainable. 
+there isn’t return value. 
+there is no way to stop or break a <code class="language-plaintext highlighter-rouge">forEach()</code> loop other than by throwing an exception.</p>
+
+<h3 id="syntax">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">forEach</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">)</span>
+<span class="nx">forEach</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="nx">array1</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span>
+
+<span class="c1">// Expected output: "a"</span>
+<span class="c1">// Expected output: "b"</span>
+<span class="c1">// Expected output: "c"</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h2 id="arrayprototypemap">Array.prototype.map()</h2>
+<p>The <code class="language-plaintext highlighter-rouge">map()</code> method is an iterative method. This array instances creates a new array populated with the results of calling a provided function on every element in the calling array. It calls a provided callbackFn function once ofor each element in an array and constructs a new array form the results. The <code class="language-plaintext highlighter-rouge">map()</code> method is generic. It only expects the this value to have a length property and integer-keyed properties.
+Since map builds a new array, calling it without using the returned array is an anti-pattern; use <code class="language-plaintext highlighter-rouge">forEach</code> or <code class="language-plaintext highlighter-rouge">for...of</code> instead.</p>
+
+<h3 id="syntax-1">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">map</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">)</span>
+<span class="nx">map</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">];</span>
+
+<span class="c1">// Pass a function to map</span>
+<span class="kd">const</span> <span class="nx">map1</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map1</span><span class="p">);</span>
+<span class="c1">// Expected output: Array [2, 8, 18, 32]</span>
+
+</code></pre></div></div>
+
+<p>and then use <kbd>Array.reduce()</kbd> for the return value from the calculation on the preceding element</p>
+
+<p><br /></p>
+
+<h4 id="resourse">Resourse</h4>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">MDN map()</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">MDN forEach()</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="javascript" /><category term="blog" /><category term="javascript" /><category term="cs" /><summary type="html"><![CDATA[javascript array loop method]]></summary></entry><entry><title type="html">leetCode 897. Increasing Order Search Tree</title><link href="http://localhost:4000/keimindev.github.io/leetCode-897-Increasing-Order-Search-Tree/" rel="alternate" type="text/html" title="leetCode 897. Increasing Order Search Tree" /><published>2024-04-28T12:50:00+09:00</published><updated>2024-04-28T12:50:00+09:00</updated><id>http://localhost:4000/keimindev.github.io/leetCode-897-Increasing-Order-Search-Tree</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/leetCode-897-Increasing-Order-Search-Tree/"><![CDATA[<p>leetCode <a href="https://leetcode.com/problems/increasing-order-search-tree/">897. Increasing Order Search Tree</a>.</p>
+
+<hr />
+
+<p>Given the <code class="language-plaintext highlighter-rouge">root</code> of a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.</p>
+
+<p>Example 1:</p>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/11/17/ex1.jpg" alt="example1" width="500" /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">root</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+
+<p><img src="https://assets.leetcode.com/uploads/2020/11/17/ex2.jpg" alt="example12" width="500" /></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">root</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">null</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Constraints:</p>
+
+<p>The number of nodes in the given tree will be in the range [1, 100].
+0 &lt;= Node.val &lt;= 1000</p>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<p>I thought I would create a new TreeNode first for result. 
+and then I should do compare values with level order traverse of root for Increasing Order.
+the last, i would push that compared values to new TreeNode. 
+that was my first try.</p>
+
+<p>and I was wrong. 
+I had to do inorder traversal and just understood about concept of treeNode. 
+But I didn’t know and understand how to write a code for solution.</p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">increasingBST</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 새로운 노드 만들고 </span>
+    <span class="c1">// 층별 순회하면서 비교하면서 넣어주면 되지 않나? 라고 생각함. </span>
+    <span class="c1">// 위에 처럼 생각하고 코드는 단 한 줄도 적지 못함.</span>
+   
+    
+    
+    <span class="c1">// arr 만들고 root 를 거기에 넣어주기 위해</span>
+	<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1">// 넣어주는 작업 </span>
+    <span class="c1">// 중위 순회를 해야함</span>
+	<span class="kd">function</span> <span class="nx">getVals</span><span class="p">(</span><span class="nx">node</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">)</span> <span class="k">return</span>
+		<span class="nx">getVals</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span>
+		<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">val</span><span class="p">)</span>
+		<span class="nx">getVals</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nx">val</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="nx">getVals</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
+
+    <span class="c1">// 새로운 노드 생성</span>
+	<span class="kd">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeNode</span><span class="p">()</span>
+	<span class="kd">let</span> <span class="nx">curr</span> <span class="o">=</span> <span class="nx">tree</span>
+    
+    <span class="c1">// arr를 돌면서 오른쪽에만 차근차근 넣기</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">curr</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeNode</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+		<span class="nx">curr</span> <span class="o">=</span> <span class="nx">curr</span><span class="p">.</span><span class="nx">right</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">right</span>
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="leetcode" /><category term="blog" /><category term="javascript" /><category term="leetcode" /><category term="Stack" /><summary type="html"><![CDATA[leetcode stack easy test]]></summary></entry><entry><title type="html">leetCode 735. Asteroid Collision - javascript</title><link href="http://localhost:4000/keimindev.github.io/leetCode-leetCode-735-Asteroid-Collision-javascript/" rel="alternate" type="text/html" title="leetCode 735. Asteroid Collision - javascript" /><published>2024-04-11T11:00:00+09:00</published><updated>2024-04-11T11:00:00+09:00</updated><id>http://localhost:4000/keimindev.github.io/leetCode-leetCode-735-Asteroid-Collision-javascript</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/leetCode-leetCode-735-Asteroid-Collision-javascript/"><![CDATA[<p>leetCode <a href="https://leetcode.com/problems/asteroid-collision/">735. Asteroid Collision</a>.</p>
+
+<hr />
+
+<p>We are given an array <code class="language-plaintext highlighter-rouge">asteroids</code> of integers representing asteroids in a row.</p>
+
+<p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
+
+<p>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p>
+
+<p>Example 1:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">asteroids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">The</span> <span class="mi">10</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">5</span> <span class="nx">collide</span> <span class="nx">resulting</span> <span class="k">in</span> <span class="mi">10</span><span class="p">.</span> <span class="nx">The</span> <span class="mi">5</span> <span class="nx">and</span> <span class="mi">10</span> <span class="nx">never</span> <span class="nx">collide</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">asteroids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[]</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">The</span> <span class="mi">8</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">8</span> <span class="nx">collide</span> <span class="nx">exploding</span> <span class="nx">each</span> <span class="nx">other</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 3:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">asteroids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">The</span> <span class="mi">2</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">5</span> <span class="nx">collide</span> <span class="nx">resulting</span> <span class="k">in</span> <span class="o">-</span><span class="mi">5</span><span class="p">.</span> <span class="nx">The</span> <span class="mi">10</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">5</span> <span class="nx">collide</span> <span class="nx">resulting</span> <span class="k">in</span> <span class="mi">10</span><span class="p">.</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><br />
+<br /></p>
+
+<h4 id="approach">Approach</h4>
+
+<p>If the number at the previous index is positive and the one at the next index is also positive, it’s fine. If a positive and a negative number meet and the negative one is greater, both the positive and negative numbers are eliminated. If a positive and a negative number meet and the positive one is greater, the negative number is eliminated. Create a new array and use a loop to put the resulting values ​​based on the conditions into the new array.
+——&gt; and fail</p>
+
+<p>its Stack. 
+—-&gt; get a help from others <br />
+1.create result array <br />
+2.loop through the given array<br />
+    a.create var last to know the last value you push in result and current arr to have current value.
+    b.Check if result arr is empty then push current also check if last value was -ve then push current because it doesnt if both are +ve or negative aslo check if current is +ve jsut push in result.
+    c. if the current is -ve than compare with last if both equal than pop the last from result
+    d.if the current is -ve and greater than last still pop the last from result but now we have to push next element on the last position from where we pop so do i–<br />
+3.return result</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h4 id="first-try-and-fail">First try and fail</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">asteroidCollision</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">asteroids</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+                <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>  
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+               <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                   <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+                   <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>  
+               <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                   
+               <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">asteroidCollision</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+    
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">asteroids</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// pick top one.</span>
+    <span class="kd">let</span> <span class="nx">last</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="c1">// current one.</span>
+    <span class="kd">let</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">|</span> <span class="p">(</span><span class="nx">last</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nx">current</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">current</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="nx">current</span> <span class="o">==</span> <span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="nx">current</span> <span class="o">&gt;</span> <span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+      <span class="nx">i</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="leetcode" /><category term="blog" /><category term="javascript" /><category term="leetcode" /><category term="Stack" /><summary type="html"><![CDATA[leetcode Stack medium test]]></summary></entry><entry><title type="html">leetCode 1493. Longest Subarray of 1’s After Deleting One Element</title><link href="http://localhost:4000/keimindev.github.io/leetCode-1493-Longest-Subarray-of-1's-After-Deleting-One-Element/" rel="alternate" type="text/html" title="leetCode 1493. Longest Subarray of 1’s After Deleting One Element" /><published>2024-04-10T17:00:00+09:00</published><updated>2024-04-10T17:00:00+09:00</updated><id>http://localhost:4000/keimindev.github.io/leetCode-1493-Longest-Subarray-of-1's-After-Deleting-One-Element</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/leetCode-1493-Longest-Subarray-of-1's-After-Deleting-One-Element/"><![CDATA[<p>leetCode <a href="https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/">1493. Longest Subarray of 1’s After Deleting One Element</a>.</p>
+
+<hr />
+
+<p>Given a binary array <code class="language-plaintext highlighter-rouge">nums</code>, you should delete one element from it.</p>
+
+<p>Return the size of the longest non-empty subarray containing only <code class="language-plaintext highlighter-rouge">1</code>’s in the resulting array. Return <code class="language-plaintext highlighter-rouge">0</code> if there is no such subarray.</p>
+
+<p>Example 1:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">3</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">After</span> <span class="nx">deleting</span> <span class="nx">the</span> <span class="nx">number</span> <span class="k">in</span> <span class="nx">position</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="nx">contains</span> <span class="mi">3</span> <span class="nx">numbers</span> <span class="kd">with</span> <span class="nx">value</span> <span class="k">of</span> <span class="mi">1</span><span class="nx">s</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">5</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">After</span> <span class="nx">deleting</span> <span class="nx">the</span> <span class="nx">number</span> <span class="k">in</span> <span class="nx">position</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="nx">longest</span> <span class="nx">subarray</span> <span class="kd">with</span> <span class="nx">value</span> <span class="k">of</span> <span class="mi">1</span><span class="nx">s</span> <span class="nx">is</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">].</span>
+</code></pre></div></div>
+
+<p>Example 3:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">2</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">You</span> <span class="nx">must</span> <span class="k">delete</span> <span class="nx">one</span> <span class="nx">element</span><span class="p">.</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<p>You need to find the sum of 1’s. Use a loop to find 0, then put the sum of 1’s before 0 into a temporary array. Then, you can obtain the sum of the 1’s, but you need to find the longest consecutive sum of 1’s.</p>
+
+<p>Again, find the maximum sum by adding the numbers in the temporary array using loop.</p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">longestSubarray</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">return</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="kd">const</span> <span class="nx">maxArr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">1</span><span class="p">){</span>
+         <span class="nx">sum</span><span class="o">++</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+         <span class="nx">maxArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+         <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="nx">maxArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">maxArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">maxArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nx">maxArr</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">));</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">result</span><span class="p">)</span>
+        
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="leetcode" /><category term="blog" /><category term="javascript" /><category term="leetcode" /><category term="BitManipulation" /><summary type="html"><![CDATA[leetcode Sliding Window medium test]]></summary></entry><entry><title type="html">leetCode 1318. Minimum Flips to Make a OR b Equal to c</title><link href="http://localhost:4000/keimindev.github.io/leetCode-1318-Minimum-Flips-to-Make-a-OR-b-Equal-to-c/" rel="alternate" type="text/html" title="leetCode 1318. Minimum Flips to Make a OR b Equal to c" /><published>2024-04-08T11:30:00+09:00</published><updated>2024-04-08T11:30:00+09:00</updated><id>http://localhost:4000/keimindev.github.io/leetCode-1318-Minimum-Flips-to-Make-a-OR-b-Equal-to-c</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/leetCode-1318-Minimum-Flips-to-Make-a-OR-b-Equal-to-c/"><![CDATA[<p>leetCode <a href="https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/">1318. Minimum Flips to Make a OR b Equal to c</a>.</p>
+
+<hr />
+
+<p>Given 3 positives numbers <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">b</code> and <code class="language-plaintext highlighter-rouge">c</code>. Return the minimum flips required in some bits of <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> to make ( <code class="language-plaintext highlighter-rouge">a</code> OR <code class="language-plaintext highlighter-rouge">b</code> == <code class="language-plaintext highlighter-rouge">c</code> ). (bitwise OR operation).
+Flip operation consists of change <code class="language-plaintext highlighter-rouge">any</code> single bit <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">0</code> or change the bit <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">1</code> in their binary representation.</p>
+
+<p>Example 1:
+<img src="./image.png" alt="example img" /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">3</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">After</span> <span class="nx">flips</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">5</span> <span class="nx">such</span> <span class="nx">that</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">OR</span> <span class="nx">b</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<ol>
+  <li>convert parameters number to binary</li>
+  <li>compare each binary length, find the longest one. and then it will be standard for loop.</li>
+  <li>using a for loop, iteratively compare each index of the binary numbers. If they are different, increment the result by 1.</li>
+  <li>return results.</li>
+</ol>
+
+<h4 id="how-to-use-arrayprototypeat">How to use <code class="language-plaintext highlighter-rouge">Array.prototype.at()</code></h4>
+
+<p>The at() method of Array instances takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">44</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`An index of </span><span class="p">${</span><span class="nx">index</span><span class="p">}</span><span class="s2"> returns </span><span class="p">${</span><span class="nx">array1</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">index</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+<span class="c1">// Expected output: "An index of 2 returns 8"</span>
+
+<span class="nx">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`An index of </span><span class="p">${</span><span class="nx">index</span><span class="p">}</span><span class="s2"> returns </span><span class="p">${</span><span class="nx">array1</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">index</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+<span class="c1">// Expected output: "An index of -2 returns 130"</span>
+ 
+</code></pre></div></div>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">minFlips</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>   
+    <span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">bitA</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">bitB</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">bitA</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">bitB</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">??</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">valueA</span> <span class="o">=</span> <span class="nx">bitA</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">??</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">valueB</span> <span class="o">=</span> <span class="nx">bitB</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">??</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+
+        <span class="nx">position</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">valueA</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">valueB</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">valueA</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="o">||</span> <span class="nx">valueB</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+            <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="the-resourse">the resourse</h4>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at">mozilla doc</a></li>
+</ul>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="leetcode" /><category term="blog" /><category term="javascript" /><category term="leetcode" /><category term="BitManipulation" /><summary type="html"><![CDATA[leetcode Bit Manipulation medium test]]></summary></entry><entry><title type="html">leetCode 338.Counting Bits</title><link href="http://localhost:4000/keimindev.github.io/leetcode-338-counting-bits/" rel="alternate" type="text/html" title="leetCode 338.Counting Bits" /><published>2024-04-07T18:30:00+09:00</published><updated>2024-04-07T18:30:00+09:00</updated><id>http://localhost:4000/keimindev.github.io/leetcode-338-counting-bits</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/leetcode-338-counting-bits/"><![CDATA[<p>leetCode <a href="https://https://leetcode.com/problems/counting-bits/">338. Counting Bits</a>.</p>
+
+<hr />
+
+<p>Given an integer <code class="language-plaintext highlighter-rouge">n</code>, return an array ans of length <code class="language-plaintext highlighter-rouge">n + 1</code> such that for each <code class="language-plaintext highlighter-rouge">i</code> (0 &lt;= i &lt;= n), <code class="language-plaintext highlighter-rouge">ans[i]</code> is <code class="language-plaintext highlighter-rouge">the number of 1's</code> in the binary representation of <code class="language-plaintext highlighter-rouge">i</code>.</p>
+
+<p>Example 1:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n <span class="o">=</span> 2
+Output: <span class="o">[</span>0,1,1]
+Explanation:
+0 <span class="nt">--</span><span class="o">&gt;</span> 0
+1 <span class="nt">--</span><span class="o">&gt;</span> 1
+2 <span class="nt">--</span><span class="o">&gt;</span> 10
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input: n <span class="o">=</span> 5
+Output: <span class="o">[</span>0,1,1,2,1,2]
+Explanation:
+0 <span class="nt">--</span><span class="o">&gt;</span> 0
+1 <span class="nt">--</span><span class="o">&gt;</span> 1
+2 <span class="nt">--</span><span class="o">&gt;</span> 10
+3 <span class="nt">--</span><span class="o">&gt;</span> 11
+4 <span class="nt">--</span><span class="o">&gt;</span> 100
+5 <span class="nt">--</span><span class="o">&gt;</span> 101
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<p>First, I thought about using a for loop to iterate over the given <code class="language-plaintext highlighter-rouge">n</code> and converting each <code class="language-plaintext highlighter-rouge">i</code> decimal number to binary to create a new array.</p>
+
+<h4 id="how-to-covert-number-to-binary">How to covert number to binary</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Number</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  
+</code></pre></div></div>
+
+<h4 id="how-to-covert-number-to-array">How to covert number to Array</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">number</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>and then use <kbd>Array.reduce()</kbd> for the return value from the calculation on the preceding element</p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countBits</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+       <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+       <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">temp</span><span class="p">)).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span><span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">acc</span><span class="p">)</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">cur</span><span class="p">))</span>
+       <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">result</span>
+    
+<span class="p">};</span>
+</code></pre></div></div>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="leetcode" /><category term="blog" /><category term="javascript" /><category term="leetcode" /><category term="BitManipulation" /><summary type="html"><![CDATA[leetcode Bit Manipulation easy test]]></summary></entry><entry><title type="html">Hola 2024 👋🏻</title><link href="http://localhost:4000/keimindev.github.io/Hola-2024/" rel="alternate" type="text/html" title="Hola 2024 👋🏻" /><published>2024-01-12T20:01:20+09:00</published><updated>2024-01-12T20:01:20+09:00</updated><id>http://localhost:4000/keimindev.github.io/Hola-2024-%F0%9F%91%8B%F0%9F%8F%BB</id><content type="html" xml:base="http://localhost:4000/keimindev.github.io/Hola-2024/"><![CDATA[<h2 id="2024">2024</h2>
+
+<p><strong>How can I grow up for Developer?</strong></p>
+
+<p>That’s a question I asked myself. I thought about building my own service, something simple like a stopwatch. It’s not a huge project; I just needed that kind of service and decided to keep updating it. I have no idea about the backend part, like the database and API. Still, I wanted to make it myself, even if it’s a bit slow. In reality, I’m actively working on designing the database, considering different aspects, and creating it step by step whenever needed. It’s a slow process, but it’s incredibly satisfying.</p>
+
+<p><strong>Having a strong inner self</strong></p>
+
+<p>I got a job offer after leaving the company. (I thought it was destiny). It’s project manager role, to put it simply. It’s really great opportunity,  but it’s quite different from my previous work experiences. I’m currently very satisfied with my development work, and I want to continue doing it. However, I concerns about future rent payments and the anxiety of what if i can’t find a work. I debated whether to accept a tempting offer, thinking that if i miss this opportunity, I might regret it later. I wondered if having a strong inner self could help ease this anxiety and impatience. The thought crossed my mind that if I can firmly establish my own thoughts, I wouldn’t be swayed easily. I want to be someone who doesn’t get swayed easily and has a clear mindset.</p>
+
+<p><strong>Goal</strong></p>
+
+<p>My reading goal of this year is to read at least ten books.</p>
+
+<p>Reduce my body far percentage to below 20% this year.</p>]]></content><author><name>Mingyeong Jeong🐰</name><email>keimindev@gmail.com</email></author><category term="blog" /><summary type="html"><![CDATA[2024]]></summary></entry></feed>

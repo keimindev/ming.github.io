@@ -1,0 +1,84 @@
+I"’+<p>leetCode <a href="https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/">1318. Minimum Flips to Make a OR b Equal to c</a>.</p>
+
+<hr />
+
+<p>Given 3 positives numbers <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">b</code> and <code class="language-plaintext highlighter-rouge">c</code>. Return the minimum flips required in some bits of <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> to make ( <code class="language-plaintext highlighter-rouge">a</code> OR <code class="language-plaintext highlighter-rouge">b</code> == <code class="language-plaintext highlighter-rouge">c</code> ). (bitwise OR operation).
+Flip operation consists of change <code class="language-plaintext highlighter-rouge">any</code> single bit <code class="language-plaintext highlighter-rouge">1</code> to <code class="language-plaintext highlighter-rouge">0</code> or change the bit <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">1</code> in their binary representation.</p>
+
+<p>Example 1:
+<img src="./image.png" alt="example img" /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">3</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">After</span> <span class="nx">flips</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">5</span> <span class="nx">such</span> <span class="nx">that</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">OR</span> <span class="nx">b</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="approach">Approach</h4>
+
+<ol>
+  <li>convert parameters number to binary</li>
+  <li>compare each binary length, find the longest one. and then it will be standard for loop.</li>
+  <li>using a for loop, iteratively compare each index of the binary numbers. If they are different, increment the result by 1.</li>
+  <li>return results.</li>
+</ol>
+
+<h4 id="how-to-use-arrayprototypeat">How to use <code class="language-plaintext highlighter-rouge">Array.prototype.at()</code></h4>
+
+<p>The at() method of Array instances takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">44</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`An index of </span><span class="p">${</span><span class="nx">index</span><span class="p">}</span><span class="s2"> returns </span><span class="p">${</span><span class="nx">array1</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">index</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+<span class="c1">// Expected output: "An index of 2 returns 8"</span>
+
+<span class="nx">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`An index of </span><span class="p">${</span><span class="nx">index</span><span class="p">}</span><span class="s2"> returns </span><span class="p">${</span><span class="nx">array1</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">index</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+<span class="c1">// Expected output: "An index of -2 returns 130"</span>
+ 
+</code></pre></div></div>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">minFlips</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>   
+    <span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">bitA</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">bitB</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">bitA</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">bitB</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">position</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">??</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">valueA</span> <span class="o">=</span> <span class="nx">bitA</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">??</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">valueB</span> <span class="o">=</span> <span class="nx">bitB</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="o">??</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+
+        <span class="nx">position</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">valueA</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">valueB</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">valueA</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="o">||</span> <span class="nx">valueB</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+            <span class="nx">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="the-resourse">the resourse</h4>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at">mozilla doc</a></li>
+</ul>
+
+:ET

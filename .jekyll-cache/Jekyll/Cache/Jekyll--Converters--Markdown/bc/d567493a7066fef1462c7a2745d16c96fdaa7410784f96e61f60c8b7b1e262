@@ -1,0 +1,61 @@
+I"y<h2 id="foreach-vs-map">forEach() vs map()</h2>
+
+<p>Both methods are Array instances and iterative methods. However, the details of the methods are slightly different</p>
+
+<p><br /></p>
+
+<h2 id="arrayprototypeforeach">Array.prototype.forEach()</h2>
+<p>The <code class="language-plaintext highlighter-rouge">forEach()</code> method of Array instances executes a provided function once for each array element.
+The <code class="language-plaintext highlighter-rouge">forEach()</code> method is an iterative method. it calls a provided callbackFn function once for each element in an array in ascending-index order. Unlike map(), forEach() always returns <code class="language-plaintext highlighter-rouge">undefined</code> and is not chainable. 
+there isn’t return value. 
+there is no way to stop or break a <code class="language-plaintext highlighter-rouge">forEach()</code> loop other than by throwing an exception.</p>
+
+<h3 id="syntax">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">forEach</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">)</span>
+<span class="nx">forEach</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="nx">array1</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span>
+
+<span class="c1">// Expected output: "a"</span>
+<span class="c1">// Expected output: "b"</span>
+<span class="c1">// Expected output: "c"</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h2 id="arrayprototypemap">Array.prototype.map()</h2>
+<p>The <code class="language-plaintext highlighter-rouge">map()</code> method is an iterative method. This array instances creates a new array populated with the results of calling a provided function on every element in the calling array. It calls a provided callbackFn function once ofor each element in an array and constructs a new array form the results. The <code class="language-plaintext highlighter-rouge">map()</code> method is generic. It only expects the this value to have a length property and integer-keyed properties.
+Since map builds a new array, calling it without using the returned array is an anti-pattern; use <code class="language-plaintext highlighter-rouge">forEach</code> or <code class="language-plaintext highlighter-rouge">for...of</code> instead.</p>
+
+<h3 id="syntax-1">Syntax</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">map</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">)</span>
+<span class="nx">map</span><span class="p">(</span><span class="nx">callbackFn</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">];</span>
+
+<span class="c1">// Pass a function to map</span>
+<span class="kd">const</span> <span class="nx">map1</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map1</span><span class="p">);</span>
+<span class="c1">// Expected output: Array [2, 8, 18, 32]</span>
+
+</code></pre></div></div>
+
+<p>and then use <kbd>Array.reduce()</kbd> for the return value from the calculation on the preceding element</p>
+
+<p><br /></p>
+
+<h4 id="resourse">Resourse</h4>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">MDN map()</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">MDN forEach()</a></li>
+</ul>
+
+<p><br /></p>
+
+:ET

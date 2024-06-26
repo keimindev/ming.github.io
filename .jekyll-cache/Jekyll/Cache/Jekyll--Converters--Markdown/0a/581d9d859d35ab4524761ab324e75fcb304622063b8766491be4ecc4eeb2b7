@@ -1,0 +1,114 @@
+I"�5<p>leetCode <a href="https://leetcode.com/problems/asteroid-collision/">735. Asteroid Collision</a>.</p>
+
+<hr />
+
+<p>We are given an array <code class="language-plaintext highlighter-rouge">asteroids</code> of integers representing asteroids in a row.</p>
+
+<p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
+
+<p>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p>
+
+<p>Example 1:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">asteroids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">The</span> <span class="mi">10</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">5</span> <span class="nx">collide</span> <span class="nx">resulting</span> <span class="k">in</span> <span class="mi">10</span><span class="p">.</span> <span class="nx">The</span> <span class="mi">5</span> <span class="nx">and</span> <span class="mi">10</span> <span class="nx">never</span> <span class="nx">collide</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 2:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">asteroids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[]</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">The</span> <span class="mi">8</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">8</span> <span class="nx">collide</span> <span class="nx">exploding</span> <span class="nx">each</span> <span class="nx">other</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>Example 3:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Input</span><span class="p">:</span> <span class="nx">asteroids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="nx">Output</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="nx">Explanation</span><span class="p">:</span> <span class="nx">The</span> <span class="mi">2</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">5</span> <span class="nx">collide</span> <span class="nx">resulting</span> <span class="k">in</span> <span class="o">-</span><span class="mi">5</span><span class="p">.</span> <span class="nx">The</span> <span class="mi">10</span> <span class="nx">and</span> <span class="o">-</span><span class="mi">5</span> <span class="nx">collide</span> <span class="nx">resulting</span> <span class="k">in</span> <span class="mi">10</span><span class="p">.</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><br />
+<br /></p>
+
+<h4 id="approach">Approach</h4>
+
+<p>If the number at the previous index is positive and the one at the next index is also positive, it’s fine. If a positive and a negative number meet and the negative one is greater, both the positive and negative numbers are eliminated. If a positive and a negative number meet and the positive one is greater, the negative number is eliminated. Create a new array and use a loop to put the resulting values ​​based on the conditions into the new array.
+——&gt; and fail</p>
+
+<p>its Stack. 
+—-&gt; get a help from others <br />
+1.create result array <br />
+2.loop through the given array<br />
+    a.create var last to know the last value you push in result and current arr to have current value.
+    b.Check if result arr is empty then push current also check if last value was -ve then push current because it doesnt if both are +ve or negative aslo check if current is +ve jsut push in result.
+    c. if the current is -ve than compare with last if both equal than pop the last from result
+    d.if the current is -ve and greater than last still pop the last from result but now we have to push next element on the last position from where we pop so do i–<br />
+3.return result</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h4 id="first-try-and-fail">First try and fail</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">asteroidCollision</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">asteroids</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+                <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>  
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+               <span class="k">if</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                   <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+                   <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>  
+               <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                   
+               <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h4 id="solution">Solution</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">asteroidCollision</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">asteroids</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+    
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">asteroids</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// pick top one.</span>
+    <span class="kd">let</span> <span class="nx">last</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="c1">// current one.</span>
+    <span class="kd">let</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">asteroids</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">|</span> <span class="p">(</span><span class="nx">last</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nx">current</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">current</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="nx">current</span> <span class="o">==</span> <span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="nx">current</span> <span class="o">&gt;</span> <span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+      <span class="nx">i</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+:ET
